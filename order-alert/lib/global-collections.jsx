@@ -10,3 +10,6 @@ Dishes = new Mongo.Collection('dishes')
 // _id, restaurants_id, users_id, [{dishes_id, quantity(int)}], order_number, is_archived(bool),
 // total_price, comment
 Orders = new Mongo.Collection('orders')
+
+// _id, users_id
+Owners = new Mongo.Collection('owners')
