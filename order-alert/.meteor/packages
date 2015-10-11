@@ -18,9 +18,10 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 react
 less
-kadira:flow-router
-kadira:blaze-layout
-kadira:react-layout
 accounts-password
 mizzao:bootstrap-3
 accounts-ui-unstyled
+iron:router
+meteoric:ionic
+meteoric:ionic-sass
+meteoric:ionicons-sass

@@ -3,10 +3,6 @@ EditMenu = React.createClass({
 		return(
 			<div className='row' id='edit-menu'>
 
-				<header className='col-xs-12'> 
-					<h1>Congee Noodle</h1>
-				</header>
-
 				<div className='col-xs-6 col-sm-4' id="categories-section">
 					<div className='big bold orange category-title'> Category </div>
 					<div className='big bold category selected'> Noodle </div>
