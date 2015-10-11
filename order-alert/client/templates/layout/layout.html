@@ -1,0 +1,24 @@
+<template name="layout">
+  {{#ionBody}}
+    {{> SideMenus}}
+
+    {{#ionSideMenuContainer}}
+      <div class="menu-content snap-content pane">
+        {{> ionNavBar class="bar-positive"}}
+
+        {{#ionNavView}}
+          {{> yield}}
+        {{/ionNavView}}
+      </div>
+    {{/ionSideMenuContainer}}
+  {{/ionBody}}
+</template>
+
+
+<template name="SideMenus">
+  {{#ionSideMenus}}
+    {{> leftSide}}
+    {{> rightSide}}
+  {{/ionSideMenus}}
+</template>
+
