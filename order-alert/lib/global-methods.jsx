@@ -53,7 +53,14 @@ Meteor.methods({
 		}
 	},
 
-	renameCategory() {
+	renameCategory(new_name, category_id) {
+		Categories.update({
+			category_id: category_id
+		}, {
+			$set: {
+				name: new_name
+			}
+		});
 	},
 
 	removeCategory(_id) {
