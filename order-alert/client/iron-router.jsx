@@ -34,22 +34,8 @@ Template.layout.rendered = function() {
 	React.render(<Filters />, document.getElementById('filtersReact'))
 
 	Tracker.autorun(function() {
-
-		var reactClass = Session.get('reactClass');
-		if(reactClass === 'EditMenu') {
-			React.render(<EditMenu />, document.getElementById('mainContentReact'));
-		}
-		if(reactClass === 'CounterMode') {
-			React.render(<CounterMode />, document.getElementById('mainContentReact'));
-		}
-
-		if(reactClass === 'Order') {
-			React.render(<Order />, document.getElementById('mainContentReact'));
-		}
-
 		var reactClass = Session.get('reactClass')
-		React.render(React.createElement(eval(reactClass), null), document.getElementById('mainContentReact'))
-
+		React.render(React.createElement(eval(reactClass), null), document.getElementById('mainContentReact'));
 	});
 }
 
