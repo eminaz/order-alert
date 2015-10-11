@@ -30,6 +30,11 @@ Template.layout.rendered = function() {
 		if(reactClass === 'EditMenu') {
 			React.render(<EditMenu />, document.getElementById('mainContentReact'));
 		}
+
+
+		if(reactClass === 'Order') {
+			React.render(<Order />, document.getElementById('mainContentReact'));
+		}
 	});
 }
 
