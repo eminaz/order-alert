@@ -37,6 +37,13 @@ Meteor.methods({
 		}
 	},
 
+	getDish(dish_id) {
+		const dish = Dishes.findOne({_id: dish_id})
+		if (dish) {
+			return dish.fetch()
+		}
+	},
+
 	updateDish() {
 	},
 
@@ -89,6 +96,13 @@ Meteor.methods({
 
 	removeRestaurant(_id) {
 		Restaurants.remove({_id: _id});
+	},
+
+	getUserEmail(user_id) {
+		if (Meteor.users.findOne({_id: user_id}) && Meteor.users.findOne({_id: user_id}).emails[0]) {
+			const email = Meteor.users.findOne({_id: user_id}).emails[0].address
+			return email
+		}
 	}
 
 	
