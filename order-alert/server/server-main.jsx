@@ -18,7 +18,7 @@ Meteor.publish("orders", function () {
 Meteor.methods({
 
 	// Example Meteor method
-	becomeOwner(secretKey) {(
+	becomeOwner(secretKey) {
 		if (secretKey != 'markIsCool') {
 			Meteor.throws('Wrong password!')
 		}
