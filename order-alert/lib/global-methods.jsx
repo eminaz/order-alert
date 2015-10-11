@@ -2,10 +2,25 @@ Meteor.methods({
 
 	// Use Meteor methods if you need to call any sever method from the client
 
-	addOrder() {
+	addOrder(resturant_id, user_id, dishes, order_number, isArchived, total_price, comment) {
+		var date = Date.now();
+		var order = {
+			resturant_id: resturant_id,
+			user_id: user_id,
+			dishes: dishes,
+			order_number: order_number,
+			isArchived: isArchived,
+			total_price: total_price,
+			comment: comment,
+			date: date
+		};
+		if(Orders.find({resturant_id: resturant_id, user_id: user_id, date:date}).count() === 0) {
+			Orders.insert(order);
+		}
 	},
 
-	removeOrder() {
+	removeOrder(_id) {
+		Orders.remove({_id: _id});
 	},
 
 	addDish(name, price, category_id, image_url, resturant_id) {
