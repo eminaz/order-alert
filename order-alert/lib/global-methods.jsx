@@ -74,6 +74,20 @@ Meteor.methods({
 	beepUser() {
 	},
 
+	addRestaurant(name, owner_id) {
+		var resturant = {
+			name: name,
+			owner_id: owner_id
+		};
+		if(Restaurants.find({name: name, owner_id: owner_id}).count() === 0) {
+			Restaurants.insert(resturant);
+		}
+	},
+
+	removeRestaurant(_id) {
+		Restaurants.remove({_id: _id});
+	}
+
 	
 
 });
