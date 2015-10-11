@@ -37,6 +37,13 @@ Meteor.methods({
 		}
 	},
 
+	getDish(dish_id) {
+		const dish = Dishes.findOne({_id: dish_id})
+		if (dish) {
+			return dish.fetch()
+		}
+	},
+
 	updateDish() {
 	},
 
@@ -75,10 +82,12 @@ Meteor.methods({
 	beepUser() {
 	},
 
-	addRestaurant(name, owner_id) {
+	addRestaurant(name, owner_id, image_url, address) {
 		var resturant = {
 			name: name,
-			owner_id: owner_id
+			owner_id: owner_id,
+			image_url: image_url,
+			address: address
 		};
 		if(Restaurants.find({name: name, owner_id: owner_id}).count() === 0) {
 			Restaurants.insert(resturant);
@@ -87,6 +96,13 @@ Meteor.methods({
 
 	removeRestaurant(_id) {
 		Restaurants.remove({_id: _id});
+	},
+
+	getUserEmail(user_id) {
+		if (Meteor.users.findOne({_id: user_id}) && Meteor.users.findOne({_id: user_id}).emails[0]) {
+			const email = Meteor.users.findOne({_id: user_id}).emails[0].address
+			return email
+		}
 	}
 
 	

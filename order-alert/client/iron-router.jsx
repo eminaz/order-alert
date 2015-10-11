@@ -7,7 +7,7 @@ Router.onAfterAction(function() {
 })
 
 Router.route('/', function() {
-	this.render('sideMenu')
+	Session.set('reactClass', 'RestaurantsClass')
 })
 
 Router.route('/edit-menu', function() {
@@ -26,12 +26,15 @@ Router.route('/counter-mode', function() {
 Router.route('/register', function() {
 	Session.set('reactClass', 'Register')
 })
+
 Router.route('/login', function() {
 	Session.set('reactClass', 'Login')
 })
-Router.route('/paysuccess', function() {
-	Session.set('reactClass', 'PaymentSuccessful')
+
+Router.route('/restaurants', function() {
+	Session.set('reactClass', 'RestaurantsClass')
 })
+
 Template.layout.rendered = function() {
 	React.render(<Settings />, document.getElementById('settingsReact'))
 	React.render(<Filters />, document.getElementById('filtersReact'))

@@ -1,61 +1,58 @@
 CounterMode = React.createClass ({
 
-  // This mixin makes the getMeteorData method work
-  mixins: [ReactMeteorData],
+	// This mixin makes the getMeteorData method work
+	mixins: [ReactMeteorData],
 
 	// Loads items from the Tasks collection and puts them on this.data.tasks
-  getMeteorData() {
-    return {
-      orders: Orders.find({}).fetch(),
-      currentUser: Meteor.user()
-    }
-  },
+	getMeteorData() {
+		return {
+			orders: Orders.find({}).fetch(),
+			currentUser: Meteor.user()
+		}
+	},
 
-  // renderOrderItems() {
-		// return <OrderItems order={this.order} />
-  // },
-
-  renderOrderTotalBill() {
-  	return (			
-  		<div className='bill-total'>
+	renderOrderTotalBill() {
+		return (			
+			<div className='bill-total'>
 				Total:  CA$29.40
 			</div>
 		)
-  },
+	},
 
-  renderCustomerInfo() {
-  	return (
+	renderCustomerInfo(email) {
+		return (
 			<div className='customer-info'>
-				Customer Information: Eric-Kim 604-000-0000
+				Customer Information: {email}
 			</div>
 		)
-  },
+	},
 
-  renderSpecialInstruction() {
-  	return (
-  		<div className='special-instruction'>
-				Special Instruction:  No spicy, thanks!
+	renderSpecialInstruction(comment) {
+		return (
+			<div className='special-instruction'>
+				Special Instruction:  {comment}
 			</div>
 		)
-  },
+	},
 
-  renderPaymentStatus() {
-  	
-  	return (
+	renderPaymentStatus() {
+		
+		return (
 			<div className='payment-status'>
 				Payment Status: <span className='green'> Received</span>
 			</div>
 		)
-  },
+	},
 
-  renderCounterOrderButtons() {
-  	return (
-  		<div className='counter-order-buttons'>
+	renderCounterOrderButtons(user_id) {
+		return (
+			<div className='counter-order-buttons'>
+				TargetUserId: {user_id}
 				<button> Archive  </button>
 				<button> Send Alert </button>
 			</div>
 		)
-  },
+	},
 
 	render() {
 		const renderOrderTotalBill = this.renderOrderTotalBill
@@ -65,7 +62,9 @@ CounterMode = React.createClass ({
 		const renderCounterOrderButtons = this.renderCounterOrderButtons
 
 		let counterOrderList = this.data.orders.map(function(order, index) {
-			const userName = Meteor.users.findOne({_id: order.user_id}).user_name
+			const orderUserEmail = Meteor.call('getUserEmail', order.user_id)
+			console.log(orderUserEmail)
+			const orderComment = order.comment
 			return (
 				<div className='counter-order'>
 					<div className='order-number'>
@@ -74,12 +73,12 @@ CounterMode = React.createClass ({
 					<div className='order-type blue'>
 						Dine-in
 					</div>
-					<OrderItems order={order} />
+					<OrderItems targetOrder={order} />
 					{renderOrderTotalBill()}
-					{renderCustomerInfo()}
-					{renderSpecialInstruction()}
+					{renderCustomerInfo(orderUserEmail)}
+					{renderSpecialInstruction(orderComment)}
 					{renderPaymentStatus()}
-					{renderCounterOrderButtons()}
+					{renderCounterOrderButtons(order.user_id)}
 				</div>
 			)
 		})
