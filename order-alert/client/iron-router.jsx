@@ -30,12 +30,7 @@ Template.layout.rendered = function() {
 	React.render(<Settings />, document.getElementById('settingsReact'));
 	Tracker.autorun(function() {
 		var reactClass = Session.get('reactClass');
-		if(reactClass === 'EditMenu') {
-			React.render(<EditMenu />, document.getElementById('mainContentReact'));
-		}
-		if(reactClass === 'CounterMode') {
-			React.render(<CounterMode />, document.getElementById('mainContentReact'));
-		}
+		React.render(React.createElement(eval(reactClass), null), document.getElementById('mainContentReact'));
 	});
 }
 
