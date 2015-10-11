@@ -26,9 +26,15 @@ Router.route('/counter-mode', function() {
 Router.route('/register', function() {
 	Session.set('reactClass', 'Register')
 })
+
 Router.route('/login', function() {
 	Session.set('reactClass', 'Login')
 })
+
+Router.route('/restaurants', function() {
+	Session.set('reactClass', 'RestaurantsClass')
+})
+
 Template.layout.rendered = function() {
 	React.render(<Settings />, document.getElementById('settingsReact'))
 	React.render(<Filters />, document.getElementById('filtersReact'))

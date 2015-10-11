@@ -1,4 +1,4 @@
-Restaurants = React.createClass({
+RestaurantsClass = React.createClass({
 	mixins: [ReactMeteorData],
 
   getMeteorData() {
@@ -18,9 +18,14 @@ Restaurants = React.createClass({
 		});
 
 		return (
-			<ul className="list">
-				{restaurants}
-			</ul>
+			<div>
+				<span>
+					Restaurants
+				</span>
+				<ul className="list">
+					{restaurants}
+				</ul>
+			</div>
 		);
 	}
 });
