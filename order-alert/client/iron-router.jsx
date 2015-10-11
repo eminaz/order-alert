@@ -34,7 +34,7 @@ Template.layout.rendered = function() {
 	React.render(<Filters />, document.getElementById('filtersReact'))
 
 	Tracker.autorun(function() {
-<<<<<<< HEAD
+
 		var reactClass = Session.get('reactClass');
 		if(reactClass === 'EditMenu') {
 			React.render(<EditMenu />, document.getElementById('mainContentReact'));
@@ -46,10 +46,10 @@ Template.layout.rendered = function() {
 		if(reactClass === 'Order') {
 			React.render(<Order />, document.getElementById('mainContentReact'));
 		}
-=======
+
 		var reactClass = Session.get('reactClass')
 		React.render(React.createElement(eval(reactClass), null), document.getElementById('mainContentReact'))
->>>>>>> 54ead300b8649612f30087235d3a6fab3c2de752
+
 	});
 }
 
