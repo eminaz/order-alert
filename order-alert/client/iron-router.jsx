@@ -7,7 +7,7 @@ Router.onAfterAction(function() {
 })
 
 Router.route('/', function() {
-	this.render('sideMenu')
+	Session.set('reactClass', 'RestaurantsClass')
 })
 
 Router.route('/edit-menu', function() {
