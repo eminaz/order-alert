@@ -6,9 +6,6 @@ FlowRouter.route('/', {
 
 FlowRouter.route('/login', {
     action: function(params, queryParams) {
-    	// if(typeof Login !== 'undefined') {
-	   	//   ReactLayout.render(Login, {someParams: "something"});
-	   	// }
 	   	BlazeLayout.render('accounts');
     }
 });

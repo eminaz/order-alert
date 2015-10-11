@@ -22,5 +22,5 @@ kadira:flow-router
 kadira:blaze-layout
 kadira:react-layout
 accounts-password
-ian:accounts-ui-bootstrap-3
 mizzao:bootstrap-3
+accounts-ui-unstyled
