@@ -11,7 +11,7 @@ EditMenu = React.createClass({
 					<div className='big bold orange'> Category </div>
 				</div>
 
-				<div className='col-sm6 col-md-8' id="dishes-section">
+				<div className='col-sm-6 col-md-8' id="dishes-section">
 					<div className='big bold orange'>Dishes</div>
 					<div className='add-dish'>
 						<img className='img-rounded' src=''></img>
