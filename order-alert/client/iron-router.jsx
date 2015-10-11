@@ -36,6 +36,10 @@ Template.layout.rendered = function() {
 		if(reactClass === 'CounterMode') {
 			React.render(<CounterMode />, document.getElementById('mainContentReact'));
 		}
+
+		if(reactClass === 'Order') {
+			React.render(<Order />, document.getElementById('mainContentReact'));
+		}
 	});
 }
 
