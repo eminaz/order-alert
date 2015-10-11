@@ -13,10 +13,16 @@ RestaurantsClass = React.createClass({
     Meteor.call('seedRestaurants');
   },
 
+  handleClick() {
+
+  	Router.go('/order');
+  },
+
 	render() {
+		var handleClick = this.handleClick;
 		var restaurants = this.data.restaurants.map(function(restaurant, index) {
 			return (
-				<div key={index}>
+				<div key={index} onClick={handleClick}>
 					<div className='row'>
 						<div className='col-xs-12 view-dish'>
 							<div className='row restaurant-row'>
