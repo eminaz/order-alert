@@ -74,4 +74,6 @@ Meteor.methods({
 	beepUser() {
 	},
 
+	
+
 });

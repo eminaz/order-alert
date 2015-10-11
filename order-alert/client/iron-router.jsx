@@ -14,6 +14,10 @@ Router.route('/edit-menu', function() {
 	Session.set('reactClass', 'EditMenu');
 });
 
+Router.route('/order', function() {
+	Session.set('reactClass', 'Order');
+});
+
 
 
 
