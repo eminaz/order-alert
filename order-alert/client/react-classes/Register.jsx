@@ -9,14 +9,16 @@ Register = React.createClass({
 			throw new Meteor.Error('Password does not match!')
 		}
 
-		if (!username) {
-			throw new Meteor.Error('Username is empty!')
+		if (!email) {
+			throw new Meteor.Error('Email is empty!')
 		}
 
 		Accounts.createUser({
 			email: email,
 			password: password
-		})
+		});
+
+		Router.go('/counter-mode');
 
 	},
 
