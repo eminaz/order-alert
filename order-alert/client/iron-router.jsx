@@ -35,6 +35,10 @@ Router.route('/restaurants', function() {
 	Session.set('reactClass', 'RestaurantsClass')
 })
 
+Router.route('/paysuccess', function() {
+	Session.set('reactClass', 'PaymentSuccessful')
+})
+
 Template.layout.rendered = function() {
 	React.render(<Settings />, document.getElementById('settingsReact'))
 	React.render(<Filters />, document.getElementById('filtersReact'))
