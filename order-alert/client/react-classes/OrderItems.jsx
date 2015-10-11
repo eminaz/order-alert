@@ -7,7 +7,10 @@ OrderItems = React.createClass({
 		const renderDishes = this.props.targetOrder.dishes.map(function(dish, index) {
 			const dish_id = dish.dish_id
 			const quantity = dish.quantity
-			const dishDetails = Meteor.call('getDish', dish_id)
+			let dishDetails = Meteor.call('getDish', dish_id)
+			if(!dishDetails) {
+				dishDetails = {name: 'Dish Name', price: 10}
+			}
 			console.log(dishDetails)
 
 			return (
@@ -23,7 +26,9 @@ OrderItems = React.createClass({
 		})
 
 		return (
-			{renderDishes}
+			<div>
+				{renderDishes}
+			</div>
 		)
 	}
 })

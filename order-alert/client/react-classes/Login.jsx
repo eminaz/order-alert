@@ -8,7 +8,7 @@ Login = React.createClass({
 		var password = React.findDOMNode(this.refs.password).value.trim();
 		Meteor.loginWithPassword(email, password, function(err, result) {
 			if(!err) {
-				Router.go('edit-menu');
+				Router.go('/');
 			}
 		});
 	},

@@ -6,7 +6,7 @@ CounterMode = React.createClass ({
 	// Loads items from the Tasks collection and puts them on this.data.tasks
 	getMeteorData() {
 		return {
-			orders: Orders.find({}).fetch(),
+			orders: Orders.find({}, {sort: {date: 1}}).fetch(),
 			currentUser: Meteor.user()
 		}
 	},

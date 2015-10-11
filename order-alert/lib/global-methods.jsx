@@ -9,7 +9,7 @@ Meteor.methods({
 			resturant_id: resturant_id,
 			user_id: user_id,
 			dishes: dishes,
-			order_number: order_number,
+			order_number: Orders.find().count()+1,
 			isArchived: isArchived,
 			total_price: total_price,
 			comment: comment,
