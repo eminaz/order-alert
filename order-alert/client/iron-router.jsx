@@ -7,7 +7,7 @@ Router.onAfterAction(function() {
 })
 
 Router.route('/', function() {
-	this.render('sideMenu')
+	Session.set('reactClass', 'RestaurantsClass')
 })
 
 Router.route('/edit-menu', function() {
@@ -33,6 +33,10 @@ Router.route('/login', function() {
 
 Router.route('/restaurants', function() {
 	Session.set('reactClass', 'RestaurantsClass')
+})
+
+Router.route('/paysuccess', function() {
+	Session.set('reactClass', 'PaymentSuccessful')
 })
 
 Template.layout.rendered = function() {
