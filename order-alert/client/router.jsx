@@ -21,3 +21,10 @@ FlowRouter.route('/edit-menu', {
 		ReactLayout.render(EditMenu)
 	}
 })
+
+FlowRouter.route('/order', {
+	action: function(params, queryParams) {
+		ReactLayout.render(Order)
+	}
+})
+
