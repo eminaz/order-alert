@@ -75,10 +75,12 @@ Meteor.methods({
 	beepUser() {
 	},
 
-	addRestaurant(name, owner_id) {
+	addRestaurant(name, owner_id, image_url, address) {
 		var resturant = {
 			name: name,
-			owner_id: owner_id
+			owner_id: owner_id,
+			image_url: image_url,
+			address: address
 		};
 		if(Restaurants.find({name: name, owner_id: owner_id}).count() === 0) {
 			Restaurants.insert(resturant);
