@@ -3,11 +3,11 @@ Meteor.publish("categories", function () {
 })
 
 Meteor.publish("restaurants", function () {
-	return Categories.find({})
+	return Restaurants.find({})
 })
 
-Meteor.publish("categories", function () {
-	return Categories.find({})
+Meteor.publish("dishes", function () {
+	return Dishes.find({})
 })
 
 Meteor.publish("orders", function () {
@@ -17,7 +17,6 @@ Meteor.publish("orders", function () {
 
 Meteor.methods({
 
-	// Example Meteor method
 	becomeOwner(secretKey) {
 		if (secretKey != 'markIsCool') {
 			Meteor.throws('Wrong password!')
@@ -28,4 +27,7 @@ Meteor.methods({
 			Owners.insert({user_id: Meteor.userId()})
 		}
 	}
+
+
+
 });
