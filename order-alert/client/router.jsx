@@ -22,9 +22,8 @@ FlowRouter.route('/edit-menu', {
 	}
 })
 
-FlowRouter.route('/order', {
+FlowRouter.route('/counter-mode', {
 	action: function(params, queryParams) {
-		ReactLayout.render(Order)
+		ReactLayout.render(CounterMode)
 	}
 })
-
