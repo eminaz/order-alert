@@ -21,6 +21,7 @@ Router.route('/edit-menu', function() {
 
 
 Template.layout.rendered = function() {
+	React.render(<Settings />, document.getElementById('settingsReact'));
 	Tracker.autorun(function() {
 		var reactClass = Session.get('reactClass');
 		if(reactClass === 'EditMenu') {
