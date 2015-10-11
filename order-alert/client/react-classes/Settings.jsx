@@ -12,6 +12,10 @@ Settings = React.createClass({
   	Router.go('/login');
   },
 
+  logout() {
+  	Meteor.logout();
+  },
+
 	render() {
 		if(this.data.user) {
 			return (
@@ -33,7 +37,7 @@ Settings = React.createClass({
 					<li className="item item-divider"><span>Switch To Menu Editing</span></li>
 					<li className="item item-divider"><span>Submit Feedback</span></li>
 					<li className="item item-divider"><span>About</span></li>
-					<li className="item item-divider log-out"><span>Log Out</span></li>
+					<li className="item item-divider log-out" onClick={this.logout}><span>Log Out</span></li>
 				</ul>
 			);
 		}
