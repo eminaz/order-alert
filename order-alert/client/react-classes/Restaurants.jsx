@@ -9,6 +9,10 @@ RestaurantsClass = React.createClass({
   	}
   },
 
+  componentDidMount() {
+    Meteor.call('seedRestaurants');
+  },
+
 	render() {
 		var restaurants = this.data.restaurants.map(function(restaurant, index) {
 			return (
@@ -36,6 +40,7 @@ RestaurantsClass = React.createClass({
 				<ul className="list">
 					{restaurants}
 				</ul>
+				<br />
 			</div>
 		);
 	}
