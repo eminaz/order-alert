@@ -35,6 +35,8 @@ Router.route('/login', function() {
 
 Template.layout.rendered = function() {
 	React.render(<Settings />, document.getElementById('settingsReact'));
+	React.render(<Filters />, document.getElementById('filtersReact'));
+
 	Tracker.autorun(function() {
 		var reactClass = Session.get('reactClass');
 		React.render(React.createElement(eval(reactClass), null), document.getElementById('mainContentReact'));
