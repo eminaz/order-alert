@@ -43,13 +43,21 @@ Meteor.methods({
 		Dishes.remove({_id: _id});
 	},
 
-	addCategory() {
+	addCategory(name, resturant_id) {
+		var category = {
+			name: name,
+			resturant_id: resturant_id
+		};
+		if(Categories.find({name: name, resturant_id: resturant_id}).count() === 0) {
+			Categories.insert(category);
+		}
 	},
 
 	renameCategory() {
 	},
 
-	removeCategory() {
+	removeCategory(_id) {
+		Categories.remove({_id: _id});
 	},
 
 	archiveOrder() {
