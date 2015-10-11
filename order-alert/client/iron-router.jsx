@@ -29,6 +29,9 @@ Router.route('/register', function() {
 Router.route('/login', function() {
 	Session.set('reactClass', 'Login')
 })
+Router.route('/paysuccess', function() {
+	Session.set('reactClass', 'PaymentSuccessful')
+})
 Template.layout.rendered = function() {
 	React.render(<Settings />, document.getElementById('settingsReact'))
 	React.render(<Filters />, document.getElementById('filtersReact'))
