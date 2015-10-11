@@ -10,5 +10,6 @@ FlowRouter.route('/login', {
 	   	//   ReactLayout.render(Login, {someParams: "something"});
 	   	// }
 	   	BlazeLayout.render('accounts');
+	   	ReactLayout.render(EditMenu);
     }
 });
