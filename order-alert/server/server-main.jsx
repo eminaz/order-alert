@@ -19,7 +19,7 @@ Meteor.methods({
 
 	becomeOwner(secretKey) {
 		if (secretKey != 'markIsCool') {
-			Meteor.throws('Wrong password!')
+			throw new Meteor.Error('Wrong password!')
 		}
 			
 		// Make user owner if they are not owner yet
