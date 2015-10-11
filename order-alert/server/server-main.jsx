@@ -11,7 +11,7 @@ Meteor.publish("dishes", function () {
 })
 
 Meteor.publish("orders", function () {
-	const user_id = Meteor.users() // Same as Meteor.users.findOne(Meteor.userId())
+	const user_id =  this.userId // Same as Meteor.users.findOne(Meteor.userId())
 	return Orders.find({})
 })
 
@@ -21,10 +21,8 @@ Meteor.methods({
 		if (secretKey != 'markIsCool') {
 			throw new Meteor.Error('Wrong password!')
 		}
-			
-		// Make user owner if they are not owner yet
-		if (Owners.find({user_id: Meteor.userId()}).count() == 0) {
-			Owners.insert({user_id: Meteor.userId()})
+		if (Owners.find({user_id: this.userId}).count() == 0) {
+			Owners.insert({user_id: this.userId})
 		}
 	}
 

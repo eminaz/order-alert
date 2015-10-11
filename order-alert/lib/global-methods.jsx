@@ -3,6 +3,7 @@ Meteor.methods({
 	// Use Meteor methods if you need to call any sever method from the client
 
 	addOrder(resturant_id, user_id, dishes, order_number, isArchived, total_price, comment) {
+		console.log('addOrder')
 		var date = Date.now();
 		var order = {
 			resturant_id: resturant_id,
@@ -14,9 +15,9 @@ Meteor.methods({
 			comment: comment,
 			date: date
 		};
-		if(Orders.find({resturant_id: resturant_id, user_id: user_id, date:date}).count() === 0) {
+		// if(Orders.find({resturant_id: resturant_id, user_id: user_id, date:date}).count() === 0) {
 			Orders.insert(order);
-		}
+		// }
 	},
 
 	removeOrder(_id) {
@@ -74,6 +75,6 @@ Meteor.methods({
 	beepUser() {
 	},
 
-	
+
 
 });
