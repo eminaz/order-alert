@@ -17,11 +17,14 @@ Router.route('/edit-menu', function() {
 Router.route('/order', function() {
 	Session.set('reactClass', 'Order');
 });
+
 Router.route('/counter-mode', function() {
 	Session.set('reactClass', 'CounterMode');
 });
 
-
+Router.route('/register', function() {
+	Session.set('reactClass', 'Register');
+});
 
 
 
