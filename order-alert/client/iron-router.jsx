@@ -26,6 +26,10 @@ Router.route('/register', function() {
 	Session.set('reactClass', 'Register');
 });
 
+Router.route('/login', function() {
+	Session.set('reactClass', 'Login');
+});
+
 
 
 
