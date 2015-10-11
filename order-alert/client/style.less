@@ -28,6 +28,11 @@ body {
 	font-family: 'Maven Pro', sans-serif;
 }
 
+div {
+	margin: 0;
+	padding: 0;
+}
+
 .orange {
 	color: #feb300;
 }
@@ -51,11 +56,31 @@ body {
 		line-height:30px;
 		background-color: #ebebeb;
 		height:300px;
-		padding: 5px;
 		text-align: center;
+		margin: 0;
+		padding: 0;
+		.category-title {
+			border-color: grey;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			border-style: solid;
+    		border-width: 0;
+    		border-bottom-width: 1px;
+		}
+		.category {
+			border-color: grey;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			border-style: solid;
+    		border-width: 0;
+    		border-bottom-width: 1px;
+    		cursor: pointer;
+		}
+		.selected {
+			background-color: white;
+		}
 	}
 	#dishes-section {
-		padding: 5px;
 		padding-left: 20px;
 
 		.add-dish {
