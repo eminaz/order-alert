@@ -21,3 +21,9 @@ FlowRouter.route('/edit-menu', {
 		ReactLayout.render(EditMenu)
 	}
 })
+
+FlowRouter.route('/counter-mode', {
+	action: function(params, queryParams) {
+		ReactLayout.render(CounterMode)
+	}
+})
