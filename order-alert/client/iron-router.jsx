@@ -17,7 +17,9 @@ Router.route('/edit-menu', function() {
 Router.route('/order', function() {
 	Session.set('reactClass', 'Order');
 });
-
+Router.route('/counter-mode', function() {
+	Session.set('reactClass', 'CounterMode');
+});
 
 
 
@@ -30,6 +32,9 @@ Template.layout.rendered = function() {
 		var reactClass = Session.get('reactClass');
 		if(reactClass === 'EditMenu') {
 			React.render(<EditMenu />, document.getElementById('mainContentReact'));
+		}
+		if(reactClass === 'CounterMode') {
+			React.render(<CounterMode />, document.getElementById('mainContentReact'));
 		}
 	});
 }
