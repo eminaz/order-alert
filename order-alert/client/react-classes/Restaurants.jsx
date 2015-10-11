@@ -11,6 +11,7 @@ RestaurantsClass = React.createClass({
 
   componentDidMount() {
     Meteor.call('seedRestaurants');
+    Meteor.call('seedDishes');
   },
 
   handleClick() {
