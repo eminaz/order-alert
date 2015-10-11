@@ -131,11 +131,27 @@ div {
 		border-style: solid;
 		border-width: 0;
 		border-bottom-width: 2px;
+		padding-top: 25px;
+		height: 100px;
 	}
 
 	#counter-mode-order-list-section {
-		margin-left: 10px;
-		margin-right: 10px;
+		margin: 0;
+		padding: 0;
+		.order-container {
+			border-color: #E8E8E8;
+			border-style: solid;
+			border-width: 0;
+			border-bottom-width: 1px;
+		}
+
+		.counter-order {
+			margin-top: 15px;
+			margin-bottom: 20px;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+
 		.order-number {
 			display: inline-block;
 			font-size: 150%;
@@ -156,16 +172,29 @@ div {
 		}
 
 		.bill-total {
-			// display: none;
+			border-color: black;
+			border-style: dashed;
+			border-width: 0;
+			border-top-width: 1px;
+			font-weight: 600;
 			float: right;
 		}
 
-
-
-		.payment-statuis {
+		.payment-status {
 			display: inline-block;
+			font-size: 120%;
+			font-weight: 700;
 		}
 
+		.counter-order-buttons {
+			// display: inline-block;
+			float: right;
+		}
 
 	}
+}
+
+.container {
+	padding-left: 0;
+	padding-right: 0
 }
