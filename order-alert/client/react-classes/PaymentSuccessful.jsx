@@ -9,7 +9,7 @@ PaymentSuccessful= React.createClass({
 			<hr/>
 			</div>
 			<div className="order-info">
-			<div className="ordered-from">Ordered From: AAA Restaurant</div>
+			<div className="ordered-from">Ordered From: <span style={{color: '#f84182'}}>AAA Restaurant</span></div>
 			<br/>
 			<div className="order-num-time">Order Number: 20151011008
 			<br/>
