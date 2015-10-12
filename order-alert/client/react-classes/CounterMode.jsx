@@ -6,7 +6,7 @@ CounterMode = React.createClass ({
 	// Loads items from the Tasks collection and puts them on this.data.tasks
 	getMeteorData() {
 		return {
-			orders: Orders.find({}, {sort: {date: 1}}).fetch(),
+			orders: Orders.find({}, {sort: {date: -1}}).fetch(),
 			currentUser: Meteor.user()
 		}
 	},
@@ -62,8 +62,9 @@ CounterMode = React.createClass ({
 		const renderCounterOrderButtons = this.renderCounterOrderButtons
 
 		let counterOrderList = this.data.orders.map(function(order, index) {
+			// console.log(order);
 			const orderUserEmail = Meteor.call('getUserEmail', order.user_id)
-			console.log(orderUserEmail)
+			// console.log(orderUserEmail)
 			const orderComment = order.comment
 			return (
 				<div className='counter-order'>

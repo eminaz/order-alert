@@ -40,7 +40,7 @@ Meteor.methods({
 	getDish(dish_id) {
 		const dish = Dishes.findOne({_id: dish_id})
 		if (dish) {
-			return dish.fetch()
+			return dish
 		}
 	},
 

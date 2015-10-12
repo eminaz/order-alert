@@ -1,13 +1,24 @@
 Order = React.createClass({
 	componentDidMount() {
-		Meteor.subscribe('orders');
+		Meteor.subscribe('orders')
+		Meteor.subscribe('dishes')
 	},
 
-	addOrder() {
-		Meteor.call('addOrder', 100, 100, [{dish_id: 10, quantity: 1}], 1002, false, 10, 'make it not spicy')
+	mixins: [ReactMeteorData],
+
+	// Loads items from the Tasks collection and puts them on this.data.tasks
+	getMeteorData() {
+		var dishes = Dishes.find().fetch()
+		return {
+			dishes: dishes
+		}
 	},
 
 	render() {
+		var dishes = this.data.dishes.map(function(dish,index) {
+			return <Dish dish={dish} />
+		})
+
 		return (
 			<div id='customer-order-page'>
 				<div className='row' id="order">
@@ -34,29 +45,50 @@ Order = React.createClass({
 					</div>
 
 					<div className='col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 category-header center'>
-						<div className='row'>
-							<div className='col-xs-3 dish-image'>
-								<img src='img/dish.png'></img>
-							</div>
-							<div className='col-xs-9 dish-details'>
-								<div className='dish-title'>
-									Dish Name
-								</div>
-								<div className='dish-description'>
-									Singapore Style Fried vermicelli with Meat & Spicy Shrimp
-								</div>
-								<div className='dish-quantity-selector'>
-									<input value='1' />
-								</div>
-								<div className='dish-price blue'>
-									CA$ 10.50
-								</div>
-							</div>
-							<button onClick={this.addOrder}>Place Order</button> 
-						</div>
+						{dishes}
+						
 					</div>
 
 				</div>
+			</div>
+		)
+	}
+})
+
+Dish = React.createClass({
+
+	propTypes: {
+    dish: React.PropTypes.object
+  },
+
+	addOrder() {
+		Meteor.call('addOrder', 100, 100, [{dish: this.props.dish, quantity: 1}], 1002, false, 10, 'make it not spicy')
+	},
+
+	render() {
+
+		var dish = this.props.dish
+
+		return (
+			<div className='row'>
+				<div className='col-xs-3 dish-image'>
+					<img src={dish.image_url}></img>
+				</div>
+				<div className='col-xs-9 dish-details'>
+					<div className='dish-title'>
+						{dish.name}
+					</div>
+					<div className='dish-description'>
+						{dish.description}
+					</div>
+					<div className='dish-quantity-selector'>
+						<input value='1' />
+					</div>
+					<div className='dish-price blue'>
+						CA$ {dish.price}
+					</div>
+				</div>
+				<button onClick={this.addOrder}>Place Order</button> 
 			</div>
 		)
 	}
