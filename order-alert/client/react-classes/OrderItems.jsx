@@ -24,6 +24,7 @@ OrderItems = React.createClass({
 			// const dish_id = dish.dish_id
 			// const quantity = dish.quantity
 			// var dishDetails = this.data.dishDetails;
+			console.log(dishObject);
 			var dish = dishObject.dish;
 			return (
 				<div className='order-item'>
